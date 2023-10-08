@@ -1,0 +1,18 @@
+[user]
+  name = Arun Saha
+  email = arunksaha@gmail.com
+[alias]
+[alias]
+  lg =  log --pretty=format:"%h\\ %cd\\ %Cred%d\\ %Creset%s\\ [%Cblue%an%Creset]" --decorate --date=short
+  lg2 = log --pretty=format:'%C(yellow)%h %Cred%cd %Cblue%an%Cgreen%d %Creset%s' --decorate --date=short
+  lg3 = log --pretty=format:'%C(yellow)%h %Cred%cd %Cblue%an%Cgreen%d %Creset%s' --decorate --date=local
+  logg = log --pretty=fuller
+  b = branch -vv
+  co = checkout
+  st = status
+  s = status -s
+[core]
+  pager = less -iXFR
+	excludesfile = /home/arun/.gitignore
+[push]
+  default = simple
