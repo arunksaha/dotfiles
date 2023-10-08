@@ -2,9 +2,12 @@
 set -x
 readonly dotdir=$(pwd)
 
+readonly tempdir=$(mktemp -d -t dotlink-XXXX)
+echo "Old files saved at: ${tempdir}"
+
 reset_link() {
     file=$1
-    rm -rf ~/${file}
+    mv ~/${file} ${tempdir}
     ln -s ${dotdir}/${file} ~/${file}
 }
 
