@@ -6,9 +6,13 @@ readonly tempdir=$(mktemp -d -t dotlink-XXXX)
 echo "Old files saved at: ${tempdir}"
 
 reset_link() {
-    file=$1
-    mv ~/${file} ${tempdir}
-    ln -s ${dotdir}/${file} ~/${file}
+    link_name=$1
+    if [ -r ~/"${link_name}" ]
+    then
+      cp -L ~/${link_name} ${tempdir}
+      rm ~/${link_name}
+    fi
+    ln -s ${dotdir}/${link_name} ~/${link_name}
 }
 
 reset_link .bashrc
@@ -19,4 +23,4 @@ reset_link .gvimrc
 reset_link .vimrc
 reset_link .Xresources
 
-reset_link .ssh/ssh_config
+# reset_link .ssh/ssh_config
