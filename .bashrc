@@ -2,7 +2,7 @@
 # access to the files we create
 umask 022
 
-export TZ=PST8PDT
+TZ=PST8PDT
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -12,7 +12,10 @@ shopt -s histappend
 HISTCONTROL=ignoreboth
 
 # Ignore some controlling instructions
-export HISTIGNORE="[   ]*:&:bg:fg:exit"
+HISTIGNORE="[   ]*:&:bg:fg:exit"
+
+# History with timestamp in format “1999-02-29 23:59:59”
+HISTTIMEFORMAT="%F %T "
 
 PS0='\[\e[0m\]'
 
